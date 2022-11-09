@@ -1,0 +1,122 @@
+<script>
+  // function to add new row.
+  const addRow = (tableName) => {
+    console.log('tableName --> ', tableName);
+    let empTab = document.getElementById(tableName);
+
+    let rowCnt = empTab.rows.length; // get the number of rows.
+    let tr = empTab.insertRow(rowCnt); // table row.
+    tr = empTab.insertRow(rowCnt);
+
+    if (tableName === 'headerTable') {
+      formHeaderTable(tr);
+    } else if (tableName === 'bodyTable') {
+      formBodyTable(tr);
+    }
+  };
+
+  // Function to form the header table
+  const formHeaderTable = (tr) => {
+    for (let c = 0; c < 4; c++) {
+      let td = document.createElement('td'); // table definition.
+      td = tr.insertCell(c);
+
+      switch (c) {
+        case 0:
+          let checkbox = document.createElement('input');
+          checkbox.setAttribute('type', 'checkbox');
+          checkbox.setAttribute('value', '');
+          checkbox.setAttribute('class', 'form-check-input');
+
+          td.appendChild(checkbox);
+          break;
+
+        case 1:
+          let ele1 = document.createElement('input');
+          ele1.setAttribute('type', 'text');
+          ele1.setAttribute('value', '');
+          ele1.setAttribute('class', 'form-control');
+          ele1.setAttribute('placeholder', 'Header');
+
+          td.appendChild(ele1);
+          break;
+
+        case 2:
+          let ele2 = document.createElement('input');
+          ele2.setAttribute('type', 'text');
+          ele2.setAttribute('value', '');
+          ele2.setAttribute('class', 'form-control');
+          ele2.setAttribute('placeholder', 'Value');
+
+          td.appendChild(ele2);
+          break;
+
+        case 3:
+          let button = document.createElement('input');
+
+          button.setAttribute('type', 'button');
+          button.setAttribute('class', 'btn-close');
+          button.setAttribute('onclick', 'removeRow(this)');
+
+          td.appendChild(button);
+          break;
+      }
+    }
+  };
+
+  // Function to form body table
+  const formBodyTable = (tr) => {};
+
+  // function to delete a row.
+  let removeRow = (oButton) => {
+    let empTab = document.getElementById('headerTable');
+    empTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // buttton -> td -> tr
+  };
+
+  const createHeaderTable = () => {
+    let hdrTable = document.createElement('table');
+    hdrTable.setAttribute('id', 'headerTable');
+    hdrTable.setAttribute('class', 'table');
+
+    let tr = hdrTable.insertRow(-1);
+
+    let div = document.getElementById('headerTableContainer');
+    div.appendChild(hdrTable);
+    addRow('headerTable');
+    addRow('headerTable');
+  };
+  document.onload = createHeaderTable();
+
+  // const createBodyTable = () => {
+  //   let bdyTable = document.createElement('table');
+  //   bdyTable.setAttribute('id', 'bodyTable');
+  //   bdyTable.setAttribute('class', 'table');
+
+  //   let tr = bdyTable.insertRow(-1);
+
+  //   let div = document.getElementById('bodyTableContainer');
+  //   div.appendChild(bdyTable);
+  //   addRow('bodyTable');
+  // };
+  // document.onload = createBodyTable();
+
+  // function to extract and submit table data.
+  let submit = () => {
+    let myTab = document.getElementById('headerTable');
+    let arrValues = new Array();
+
+    // loop through each row of the table.
+    for (row = 1; row < myTab.rows.length - 1; row++) {
+      // loop through each cell in a row.
+      for (c = 0; c < myTab.rows[row].cells.length; c++) {
+        let element = myTab.rows.item(row).cells[c];
+        if (element.childNodes[0].getAttribute('type') == 'text') {
+          arrValues.push("'" + element.childNodes[0].value + "'");
+        }
+      }
+    }
+
+    // finally, show the result in the console.
+    console.log(arrValues);
+  };
+</script>

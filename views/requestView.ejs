@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-2">
+    <select
+      class="form-select"
+      aria-label="Action type dropdown"
+      id="actionType"
+    >
+      <option value="get" selected>GET</option>
+      <option value="post">POST</option>
+      <option value="put">PUT</option>
+    </select>
+  </div>
+
+  <div class="col-9">
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="url"
+        aria-describedby="url"
+        placeholder="URL"
+      />
+    </div>
+  </div>
+
+  <div class="col-1">
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="width: 100%"
+      onclick="sendRequest()"
+    >
+      SEND
+    </button>
+  </div>
+</div>
+
+<div>
+  <ul class="nav nav-tabs" id="bodyTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="header-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#header-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="header-tab-pane"
+        aria-selected="true"
+      >
+        Headers
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="auth-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#auth-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="auth-tab-pane"
+        aria-selected="false"
+      >
+        Auth
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="body-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#body-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="body-tab-pane"
+        aria-selected="false"
+      >
+        Body Details
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="bodyTabsContent">
+    <div
+      class="tab-pane fade show active"
+      id="header-tab-pane"
+      role="tabpanel"
+      aria-labelledby="header-tab"
+      tabindex="0"
+    >
+      <%- include('./headerView') %>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="auth-tab-pane"
+      role="tabpanel"
+      aria-labelledby="auth-tab"
+      tabindex="0"
+    >
+      2
+    </div>
+    <div
+      class="tab-pane fade"
+      id="body-tab-pane"
+      role="tabpanel"
+      aria-labelledby="body-tab"
+      tabindex="0"
+    >
+    <%- include('./bodyView') %>
+    </div>
+  </div>
+</div>

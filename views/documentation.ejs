@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('includes/head') %> <%- include('includes/bootstrap') %>
+  </head>
+  <body>
+    <div class="container pb-5">
+      <!-- navbar -->
+      <div><%- include('includes/nav') %></div>
+      <!-- documentation view -->
+      <div>
+        <h1>random-insert-api</h1>
+        <p>
+          Want to insert bulk random data to your database via your API? This is
+          the perfect solution.
+        </p>
+
+        <div>
+          <h2>Body JSON</h2>
+          <p>
+            The body entity needs a JSON to describe what type of data needs to
+            be inserted. An example JSON is given below:
+          </p>
+          <textarea
+            class="form-control"
+            rows="31"
+            disabled
+            id="example1"
+          ></textarea>
+          <p>
+            In this json, the keys represents the parameter name required by the
+            API and the value contains the type of data needed along with its
+            attributes (if any).
+          </p>
+
+          <h3>Current Supported Types and its features</h3>
+          <div>
+            <ul>
+              <li>
+                <code>uuid</code>
+                <code>Eg: 6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b</code>
+              </li>
+              <li>
+                <code>fullname</code>
+                <code>Eg: John Doe</code>
+              </li>
+              <li>
+                <code>firstname</code>
+                <code>Eg: Don</code>
+              </li>
+              <li>
+                <code>lastname</code>
+                <code>Eg: Bradman</code>
+              </li>
+              <li>
+                <code>number</code>
+                <code>Eg: 43.88</code>
+                <ul>
+                  <li><code>min: minimum length of the string</code></li>
+                  <li><code>max: maximum length of the string</code></li>
+                  <li><code>decimal: boolean</code></li>
+                  <li><code>range: 1-6 (range is required if decimal is true)</code></li>
+                </ul>
+              </li>
+              <li>
+                <code>alphanumeric</code>
+                <code>Eg: h282uhh20</code>
+                <ul>
+                  <li><code>min: minimum length of the string</code></li>
+                  <li><code>max: maximum length of the string</code></li>
+                </ul>
+              </li>
+              <li>
+                <code>email</code>
+                <code>Eg: foo@bar.com</code>
+              </li>
+              <li>
+                <code>phone</code>
+                <code>Eg: a random phone number here</code>
+                <ul>
+                  <li><code>length: maximum length</code></li>
+                </ul>
+              </li>
+              <li>
+                <code>gender</code>
+                <code>Eg: Male/Female/Other</code>
+                <ul>
+                  <li><code>abv: boolean - M/F</code></li>
+                </ul>
+              </li>
+              <li>
+                <code>currency</code>
+                <code>Eg: USD/INR/EUR</code>
+              </li>
+              <li>
+                <code>country</code>
+                <code>Eg: IN/US/FR</code>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- scripts -->
+    <%- include('scripts/documentationScript') %>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<script>
+  // prettier-ignore
+  const exampleJson = {
+    "id": {
+      "type": "uuid"
+    },
+    "firstName": {
+      "type": "firstname"
+    },
+    "lastName": {
+      "type": "lastname"
+    },
+    "age": {
+      "type": "age",
+      "min": 20,
+      "max": 85
+    },
+    "password": {
+      "type": "alphanumeric",
+      "min": 2,
+      "max": 16
+    },
+    "email": {
+      "type": "email"
+    },
+    "phoneNumber": {
+      "type": "phone",
+      "length": 10
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  };
+
+  document.getElementById('example1').value = JSON.stringify(exampleJson, null, 2);
+</script>
