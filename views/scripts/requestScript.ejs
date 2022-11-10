@@ -1,7 +1,6 @@
 <script>
   // function to add new row.
   const addRow = (tableName) => {
-    console.log('tableName --> ', tableName);
     let empTab = document.getElementById(tableName);
 
     let rowCnt = empTab.rows.length; // get the number of rows.
@@ -118,5 +117,32 @@
 
     // finally, show the result in the console.
     console.log(arrValues);
+  };
+
+  const validateJson = () => {
+    const json = document.getElementById('bodyJson').value;
+
+    // call the validate api json
+    document.getElementById('validateBtnSpinner').style.display = '';
+    document.getElementById('validateBtn').setAttribute('disabled', 'true');
+    fetch('http://127.0.0.1:8765/validateJson', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: json
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Success:', data);
+        document.getElementById('validateBtnSpinner').style.display = 'none';
+        document.getElementById('validateBtn').removeAttribute('disabled');
+      })
+      .catch((error) => {
+        console.log(error);
+        document.getElementById('validateBtnSpinner').style.display = 'none';
+        document.getElementById('validateBtn').removeAttribute('disabled');
+      });
   };
 </script>

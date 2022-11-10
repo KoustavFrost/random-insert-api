@@ -1,6 +1,6 @@
 # random-insert-api
 
-**THIS REPO IS WIP AND DOES NOT WORK** <br>
+**THIS REPO IS WIP AND DOES NOT WORK AT THE MOMENT** <br>
 
 Want to insert bulk random data to your database via your API? This is the perfect solution.
 
@@ -20,7 +20,7 @@ The body entity needs a JSON to describe what type of data needs to be inserted.
     "type": "lastname"
   },
   "age": {
-    "type": "age",
+    "type": "number",
     "min": 20,
     "max": 85
   },

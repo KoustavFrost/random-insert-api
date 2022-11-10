@@ -1,4 +1,4 @@
-const { createServer } = require('../lib/backend');
+import { createServer } from '../lib/backend.js';
 
 const app = createServer();
 const host = process.env.HOST || 'localhost';

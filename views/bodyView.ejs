@@ -2,4 +2,13 @@
   <textarea class="form-control" id="bodyJson" rows="6"></textarea>
 </div>
 
-<button type="button" class="btn btn-outline-primary">Validate JSON</button>
+<button type="button" class="btn btn-outline-primary" onclick="validateJson()" id="validateBtn">
+  Validate JSON
+  <span
+    class="spinner-border spinner-border-sm"
+    role="status"
+    aria-hidden="true"
+    style="display: none"
+    id="validateBtnSpinner"
+  ></span>
+</button>
