@@ -107,4 +107,8 @@ In this json, the keys represents the parameter name required by the API and the
     <code>country</code>
     <code>Eg: IN/US/FR</code>
   </li>
+  <li>
+    <code>boolean</code>
+    <code>Eg: true/false</code>
+  </li>
 </ul>

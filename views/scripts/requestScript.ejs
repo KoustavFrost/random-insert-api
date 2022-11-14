@@ -125,22 +125,18 @@
     // call the validate api json
     document.getElementById('validateBtnSpinner').style.display = '';
     document.getElementById('validateBtn').setAttribute('disabled', 'true');
-    fetch('http://127.0.0.1:8765/validateJson', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: json
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data);
+
+    axios
+      .post('http://127.0.0.1:8765/validateJson', {
+        data: JSON.parse(json)
+      })
+      .then((res) => {
+        console.log('res --> ', res);
         document.getElementById('validateBtnSpinner').style.display = 'none';
         document.getElementById('validateBtn').removeAttribute('disabled');
       })
       .catch((error) => {
-        console.log(error);
+        console.log('error --> ', error?.response?.data);
         document.getElementById('validateBtnSpinner').style.display = 'none';
         document.getElementById('validateBtn').removeAttribute('disabled');
       });
