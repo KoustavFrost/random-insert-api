@@ -122,6 +122,11 @@
   const validateJson = () => {
     const json = document.getElementById('bodyJson').value;
 
+    if(!json) {
+      alert("JSON Body Is Not Present");
+      return;
+    }
+
     // call the validate api json
     document.getElementById('validateBtnSpinner').style.display = '';
     document.getElementById('validateBtn').setAttribute('disabled', 'true');
